@@ -1,36 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>URL Loader</title>
+    <title>Embedded Websites</title>
+    <style>
+        iframe {
+            width: 100%;
+            height: 500px;
+        }
+    </style>
 </head>
 <body>
-  <h1>URL Loader</h1>
-  
-  <p>Select the mode:</p>
-  <input type="radio" name="mode" id="desktopMode" checked>
-  <label for="desktopMode">Desktop Mode</label><br>
-  <input type="radio" name="mode" id="mobileMode">
-  <label for="mobileMode">Mobile Mode</label><br>
-  
-  <button onclick="loadURL()">Load URL</button>
-  
-  <script>
-    function loadURL() {
-      var url = "https://erp.silicon.ac.in/estcampus/";
-      var mode = "";
-      
-      if (document.getElementById("desktopMode").checked) {
-        mode = "desktop";
-      } else if (document.getElementById("mobileMode").checked) {
-        mode = "mobile";
-      }
-      
-      if (mode === "desktop") {
-        window.location.href = url + "?mode=desktop";
-      } else if (mode === "mobile") {
-        window.location.href = url + "?mode=mobile";
-      }
-    }
-  </script>
+    <h1>Embedded Websites</h1>
+    <label for="urlInput">Enter URL:</label>
+    <input type="text" id="urlInput">
+    <button onclick="loadWebsite()">Load Website</button>
+    <br>
+    <iframe id="iframe"></iframe>
+
+    <script>
+        function loadWebsite() {
+            var url = document.getElementById("urlInput").value;
+            document.getElementById("iframe").src = url;
+        }
+    </script>
 </body>
 </html>
