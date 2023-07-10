@@ -20,7 +20,21 @@
     <script>
         function loadWebsite() {
             var url = document.getElementById("urlInput").value;
-            document.getElementById("iframe").src = url;
+            var iframe = document.getElementById("iframe");
+            iframe.src = "about:blank"; // Clear iframe content first
+
+            // Set user-agent header to mimic a desktop browser
+            var userAgentHeader = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36';
+
+            // Create a new request to add the user-agent header
+            var request = new Request(url, {
+                headers: {
+                    'User-Agent': userAgentHeader
+                }
+            });
+
+            // Load the URL with the modified request
+            iframe.src = request;
         }
     </script>
 </body>
