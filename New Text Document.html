@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>URL Loader</title>
+</head>
+<body>
+  <h1>URL Loader</h1>
+  
+  <p>Select the mode:</p>
+  <input type="radio" name="mode" id="desktopMode" checked>
+  <label for="desktopMode">Desktop Mode</label><br>
+  <input type="radio" name="mode" id="mobileMode">
+  <label for="mobileMode">Mobile Mode</label><br>
+  
+  <button onclick="loadURL()">Load URL</button>
+  
+  <script>
+    function loadURL() {
+      var url = "https://erp.silicon.ac.in/estcampus/";
+      var mode = "";
+      
+      if (document.getElementById("desktopMode").checked) {
+        mode = "desktop";
+      } else if (document.getElementById("mobileMode").checked) {
+        mode = "mobile";
+      }
+      
+      if (mode === "desktop") {
+        window.location.href = url + "?mode=desktop";
+      } else if (mode === "mobile") {
+        window.location.href = url + "?mode=mobile";
+      }
+    }
+  </script>
+</body>
+</html>
